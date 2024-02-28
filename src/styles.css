@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "American Typewriter";
+  src: url("./fonts/American\ Typewriter\ Regular.ttf") format("truetype");
+  font-style: normal;
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: "American Typewriter";
+  src: url(./fonts/American\ Typewriter\ Bold.ttf) format("truetype");
+  font-style: normal;
+  font-weight: 700;
+}
+
+.main-container {
+  min-width: 375px;
+  height: 100vh;
+  padding: 0 35px;
+  background-image: url(/src/images/fondo.svg);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.title-container {
+  margin: 115px auto 55px auto;
+  width: 305px;
+}
+
+.title {
+  font-family: "American Typewriter";
+  font-weight: 700;
+  font-size: 80px;
+  line-height: 70.5px;
+  color: #009048;
+}
+
+@media only screen and (min-width: 960px) {
+  .title-container {
+    width: 375px;
+  }
+
+  .title {
+    font-size: 100px;
+    line-height: 90px;
+  }
+}
+
+.transparent {
+  opacity: 50%;
+}
+
+button-ce {
+  margin: auto;
+}
+
+.image-container {
+  margin: 55px auto 20px auto;
+  display: flex;
+}
+
+.image-container img {
+  width: 100px;
+}
+
+@media only screen and (min-width: 960px) {
+  .image-container {
+    gap: 20px;
+  }
+
+  .image-container img {
+    width: 140px;
+  }
+}

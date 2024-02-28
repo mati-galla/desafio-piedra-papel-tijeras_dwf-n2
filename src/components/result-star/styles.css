@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.result-star-ce__container {
+  width: 255px;
+  height: 260px;
+  position: relative;
+}
+
+.result-star-ce__image {
+  z-index: -1;
+  position: absolute;
+}
+
+.result-star-ce__text {
+  z-index: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  font-family: "Odibee Sans", sans-serif;
+  font-weight: 400;
+  font-size: 55px;
+  color: #d8fcfc;
+}
