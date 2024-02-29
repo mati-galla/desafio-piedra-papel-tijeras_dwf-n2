@@ -1,13 +1,18 @@
 import { initInicio } from "./pages/inicio";
+import { initResultado } from "./pages/resultado";
 
 const routes = [
   {
     path: /\/inicio/,
     component: initInicio,
   },
+  {
+    path: /\/resultado/,
+    component: initResultado,
+  },
 ];
 
-export function initRouter(container: HTMLElement) {
+export function initRouter(container: HTMLBodyElement) {
   function goTo(path) {
     history.pushState({}, "", path);
     handleRoute(path);
@@ -16,7 +21,7 @@ export function initRouter(container: HTMLElement) {
   function handleRoute(route) {
     for (const r of routes) {
       if (r.path.test(route)) {
-        r.component(container);
+        r.component(container, { goTo: goTo });
       }
     }
   }

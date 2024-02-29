@@ -16,13 +16,13 @@ export function initMoveOptions() {
       const papelImageURL = new URL("/src/images/papel.svg", import.meta.url);
 
       this.shadow.innerHTML = `
-      <fieldset class="move-options-ce__fieldset">
+      <div class="move-options-ce__container">
       <input
         type="radio"
         name="move-options"
-        id="tijeras-option"
+        id="tijeras"
         class="move-options-ce__radio" />
-      <label for="tijeras-option" class="move-options-ce__label">
+      <label for="tijeras" class="move-options-ce__label">
         <img
           src=${tijerasImageURL}
           alt=""
@@ -31,9 +31,9 @@ export function initMoveOptions() {
       <input
         type="radio"
         name="move-options"
-        id="piedra-option"
+        id="piedra"
         class="move-options-ce__radio" />
-      <label for="piedra-option" class="move-options-ce__label">
+      <label for="piedra" class="move-options-ce__label">
         <img
           src=${piedraImageURL}
           alt=""
@@ -42,24 +42,32 @@ export function initMoveOptions() {
       <input
         type="radio"
         name="move-options"
-        id="papel-option"
+        id="papel"
         class="move-options-ce__radio" />
-      <label for="papel-option" class="move-options-ce__label">
+      <label for="papel" class="move-options-ce__label">
         <img
           src=${papelImageURL}
           alt=""
           class="move-options-ce__image" />
       </label>
-    </fieldset>
+    </div>
       `;
 
       const style = document.createElement("style");
       style.innerHTML = `
-      .move-options-ce__fieldset {
-        display: block;
-        height: 125px;
-        border: 0;
-        gap: 15px;
+      * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      }
+
+      .move-options-ce__container {
+        height: 210px;
+        display: flex;
+        margin-left: 0;
+        margin-rigth: 0;
+        border: none;
+        justify-content: space-between;
       }
       
       .move-options-ce__label {
@@ -68,7 +76,6 @@ export function initMoveOptions() {
       
       .move-options-ce__image {
         height: 100%;
-        margin-bottom: -35px;
       }
       
       .move-options-ce__radio {
@@ -77,7 +84,8 @@ export function initMoveOptions() {
       
       .move-options-ce__radio:checked + .move-options-ce__label {
         .move-options-ce__image {
-          margin-bottom: 0;
+          position: relative;
+          top: -40px;
           opacity: 100%;
         }
       }
@@ -85,6 +93,8 @@ export function initMoveOptions() {
       .move-options-ce__radio:checked ~ .move-options-ce__radio {
         + .move-options-ce__label {
           .move-options-ce__image {
+            position: relative;
+            bottom: -40px;
             opacity: 50%;
           }
         }
@@ -93,6 +103,8 @@ export function initMoveOptions() {
       .move-options-ce__radio:has(~ .move-options-ce__radio:checked) {
         + .move-options-ce__label {
           .move-options-ce__image {
+            position: relative;
+            bottom: -40px;
             opacity: 50%;
           }
         }

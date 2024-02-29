@@ -41,6 +41,10 @@
   color: #009048;
 }
 
+.transparent {
+  opacity: 50%;
+}
+
 @media only screen and (min-width: 960px) {
   .title-container {
     width: 375px;
@@ -52,8 +56,18 @@
   }
 }
 
-.transparent {
-  opacity: 50%;
+.instructions-container {
+  margin: 115px auto 25px auto;
+  width: 305px;
+}
+
+.instructions {
+  font-family: "American Typewriter";
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 40px;
+  color: #000000;
+  text-align: center;
 }
 
 button-ce {
@@ -77,4 +91,15 @@ button-ce {
   .image-container img {
     width: 140px;
   }
+}
+
+.counter-container {
+  margin: 125px auto 0 auto;
+}
+
+move-options-ce {
+  min-width: 305px;
+  max-width: 375px;
+  margin: auto;
+  margin-bottom: -40px;
 }

@@ -8,18 +8,20 @@ export function initCounter() {
     }
 
     render() {
+      const originalText = this.textContent;
+      console.log(originalText);
       const ellipseImageURL = new URL(
         "/src/images/ellipse.svg",
         import.meta.url
       );
 
       this.shadow.innerHTML = `
-      <div class="counter-ce__container">
+      <div class="counter-ce__holder">
       <img
         src=${ellipseImageURL}
         class="counter-ce__image"
         width="243px" />
-      <p class="counter-ce__text">3</p>
+      <p class="counter-ce__time">${originalText}</p>
     </div>
       `;
 
@@ -31,19 +33,17 @@ export function initCounter() {
       box-sizing: border-box;
       }
 
-      .counter-ce__container {
+      .counter-ce__holder {
         width: 243px;
         height: 243px;
         position: relative;
       }
       
       .counter-ce__image {
-        z-index: -1;
         position: absolute;
       }
       
-      .counter-ce__text {
-        z-index: 0;
+      .counter-ce__time {
         position: absolute;
         top: 50%;
         left: 50%;
