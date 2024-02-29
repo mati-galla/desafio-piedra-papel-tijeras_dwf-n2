@@ -55,7 +55,7 @@ export function initResultStar() {
         font-family: "Odibee Sans", sans-serif;
         font-weight: 400;
         font-size: 55px;
-        color: #d8fcfc;
+        color: white;
       }      
       `;
       this.shadow.appendChild(style);

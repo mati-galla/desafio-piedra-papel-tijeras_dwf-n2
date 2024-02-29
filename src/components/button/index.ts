@@ -23,7 +23,7 @@ export function initButton() {
       }
 
       .root {
-        width: 305px;
+        width: 100%;
         height: 90px;
         border: 10px solid #001997;
         border-radius: 10px;
@@ -32,12 +32,6 @@ export function initButton() {
         font-weight: 400;
         font-size: 45px;
         color: #D8FCFC;
-      }
-
-      @media only screen and (min-width: 960px) {
-        .root {
-          width: 375px;
-        }
       }
       `;
 

@@ -12,7 +12,7 @@ export function initInicio(body: HTMLBodyElement, params) {
         <h1 class="title">Piedra Papel <span class="transparent">ó</span> Tijeras</h1>
       </div>
         <button-ce id='start-button'>Empezar</button-ce>
-        <div class="image-container">
+        <div class="images-container">
         <img src="${scissorsImageURL}" alt="">
         <img src="${rockImageURL}" alt="">
         <img src="${paperImageURL}" alt="">
@@ -57,41 +57,48 @@ export function initInicio(body: HTMLBodyElement, params) {
     function changeCounter() {
       timeLeft--;
       if (timeLeft > 0) renderCounter(timeLeft);
-      if (timeLeft == 0) {
-        movesList.forEach((e) => {
-          if (e.checked) showMoves(e.id);
-        });
-      }
+      if (timeLeft == 0) showMoves();
       if (timeLeft < 0) {
         clearInterval(counterIntervalID);
         params.goTo("/resultado");
       }
     }
 
-    function showMoves(move: string) {
-      let moveURL: URL;
-      move.includes("tijeras")
-        ? (moveURL = tijerasImageURL)
-        : move.includes("piedra")
-        ? (moveURL = piedraImageURL)
-        : move.includes("papel")
-        ? (moveURL = papelImageURL)
-        : new ReferenceError("No se eligio ninguna opcion");
+    function showMoves() {
+      let pcMoveURL: URL = getPCMoveURL();
+      let userMoveURL: URL;
+      movesList.forEach((e) => {
+        if (e.checked) userMoveURL = getUserMoveURL(e.id);
+      });
+      if (!userMoveURL) params.goTo("/inicio");
 
       mainContainer.innerHTML = `
-      <img src=${moveURL} class='move-img'height='360px'/>
+      <img src=${pcMoveURL} class='pc-move-img'height='360px'/>
+      <img src=${userMoveURL} class='user-move-img'height='360px'/>
       `;
+    }
+
+    function getPCMoveURL() {
+      const moveNumber = Math.floor(Math.random() * 3);
+      if (moveNumber == 0) return tijerasImageURL;
+      if (moveNumber == 1) return piedraImageURL;
+      if (moveNumber == 2) return papelImageURL;
+    }
+
+    function getUserMoveURL(move) {
+      if (move.includes("tijeras")) return tijerasImageURL;
+      if (move.includes("piedra")) return piedraImageURL;
+      if (move.includes("papel")) return papelImageURL;
     }
 
     mainContainer.innerHTML = `
     <div class='counter-container'></div>
     <move-options-ce></move-options-ce>
     `;
-    const moveOptionsCE = document.querySelector("move-options-ce");
-    const movesList =
-      moveOptionsCE.shadowRoot.querySelectorAll<HTMLInputElement>(
-        'input[type="radio"]'
-      );
+    const moveOptionsCE = document.querySelector("move-options-ce").shadowRoot;
+    const movesList = moveOptionsCE.querySelectorAll<HTMLInputElement>(
+      'input[type="radio"]'
+    );
     var timeLeft = 3;
     renderCounter(timeLeft);
     const counterIntervalID = setInterval(changeCounter, 1000);

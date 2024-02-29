@@ -71,24 +71,31 @@
 }
 
 button-ce {
+  width: 305px;
   margin: auto;
 }
 
-.image-container {
+@media only screen and (min-width: 960px) {
+  button-ce {
+    width: 375px;
+  }
+}
+
+.images-container {
   margin: 55px auto 20px auto;
   display: flex;
 }
 
-.image-container img {
+.images-container img {
   width: 100px;
 }
 
 @media only screen and (min-width: 960px) {
-  .image-container {
+  .images-container {
     gap: 20px;
   }
 
-  .image-container img {
+  .images-container img {
     width: 140px;
   }
 }
@@ -102,4 +109,67 @@ move-options-ce {
   max-width: 375px;
   margin: auto;
   margin-bottom: -40px;
+}
+
+.pc-move-img {
+  rotate: 180deg;
+}
+
+.background-element {
+  min-width: 375px;
+  height: 100vh;
+  background: url(/src/images/fondo.svg);
+}
+
+.result-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.victory {
+  background: rgba(136, 137, 73, 0.8);
+}
+
+.defeat {
+  background: rgb(137, 73, 73, 0.8);
+}
+
+result-star-ce {
+  display: block;
+  margin: auto;
+}
+
+.scoreboard {
+  width: 255px;
+  height: 220px;
+  margin: 5px auto 5px auto;
+  border: 10px solid black;
+  border-radius: 10px;
+  padding: 5px 20px 18px 20px;
+  background-color: white;
+}
+
+.scoreboard h2 {
+  margin-bottom: 13px;
+  font-family: "Odibee Sans", sans-serif;
+  font-weight: 400;
+  font-size: 55px;
+  line-height: 61px;
+  text-align: center;
+}
+
+.scoreboard p {
+  font-family: "Odibee Sans", sans-serif;
+  font-weight: 400;
+  font-size: 45px;
+  line-height: 50px;
+  text-align: right;
+}
+
+.result-container button-ce {
+  width: 335px;
+  margin: auto;
 }
