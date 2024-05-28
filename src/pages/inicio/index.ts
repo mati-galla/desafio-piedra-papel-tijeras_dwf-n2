@@ -1,3 +1,5 @@
+import { state } from "src/state";
+
 export function initInicio(body: HTMLBodyElement, params) {
   const scissorsImageURL = new URL("/src/images/scissors.svg", import.meta.url);
   const rockImageURL = new URL("/src/images/rock.svg", import.meta.url);
@@ -5,6 +7,7 @@ export function initInicio(body: HTMLBodyElement, params) {
   const tijerasImageURL = new URL("/src/images/tijeras.svg", import.meta.url);
   const piedraImageURL = new URL("/src/images/piedra.svg", import.meta.url);
   const papelImageURL = new URL("/src/images/papel.svg", import.meta.url);
+  state.downloadState();
 
   body.innerHTML = `
 <div class="main-container">
@@ -33,7 +36,7 @@ export function initInicio(body: HTMLBodyElement, params) {
       de que pasen los 3 segundos.</h2>
     </div>
       <button-ce id='play-button'>¡Jugar!</button-ce>
-      <div class="image-container">
+      <div class="images-container">
       <img src="${scissorsImageURL}" alt="">
       <img src="${rockImageURL}" alt="">
       <img src="${paperImageURL}" alt="">
@@ -68,21 +71,28 @@ export function initInicio(body: HTMLBodyElement, params) {
       let pcMoveURL: URL = getPCMoveURL();
       let userMoveURL: URL;
       movesList.forEach((e) => {
-        if (e.checked) userMoveURL = getUserMoveURL(e.id);
+        if (e.checked) {
+          state.setUserMove(Number(e.value));
+          userMoveURL = getUserMoveURL(e.id);
+        }
       });
-      if (!userMoveURL) params.goTo("/inicio");
+      if (!userMoveURL) {
+        clearInterval(counterIntervalID);
+        params.goTo("/inicio");
+      }
 
       mainContainer.innerHTML = `
-      <img src=${pcMoveURL} class='pc-move-img'height='360px'/>
-      <img src=${userMoveURL} class='user-move-img'height='360px'/>
+      <img src=${pcMoveURL} class='pc-move-img'height='300px'/>
+      <img src=${userMoveURL} class='user-move-img'height='300px'/>
       `;
     }
 
     function getPCMoveURL() {
-      const moveNumber = Math.floor(Math.random() * 3);
-      if (moveNumber == 0) return tijerasImageURL;
+      const moveNumber = Math.floor(Math.random() * 3 + 1);
+      state.setPcMove(moveNumber);
       if (moveNumber == 1) return piedraImageURL;
       if (moveNumber == 2) return papelImageURL;
+      if (moveNumber == 3) return tijerasImageURL;
     }
 
     function getUserMoveURL(move) {

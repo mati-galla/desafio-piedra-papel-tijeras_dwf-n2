@@ -18,37 +18,40 @@ export function initMoveOptions() {
       this.shadow.innerHTML = `
       <div class="move-options-ce__container">
       <input
-        type="radio"
-        name="move-options"
-        id="tijeras"
-        class="move-options-ce__radio" />
-      <label for="tijeras" class="move-options-ce__label">
-        <img
-          src=${tijerasImageURL}
-          alt=""
-          class="move-options-ce__image" />
-      </label>
-      <input
-        type="radio"
-        name="move-options"
-        id="piedra"
-        class="move-options-ce__radio" />
+      type="radio"
+      name="move-options"
+      id="piedra"
+      value="4"
+      class="move-options-ce__radio" />
       <label for="piedra" class="move-options-ce__label">
         <img
-          src=${piedraImageURL}
-          alt=""
-          class="move-options-ce__image" />
+        src=${piedraImageURL}
+        alt=""
+        class="move-options-ce__image" />
       </label>
       <input
-        type="radio"
-        name="move-options"
-        id="papel"
-        class="move-options-ce__radio" />
+      type="radio"
+      name="move-options"
+      id="papel"
+      value="5"
+      class="move-options-ce__radio" />
       <label for="papel" class="move-options-ce__label">
         <img
-          src=${papelImageURL}
-          alt=""
-          class="move-options-ce__image" />
+        src=${papelImageURL}
+        alt=""
+        class="move-options-ce__image" />
+      </label>
+      <input
+      type="radio"
+      name="move-options"
+      id="tijeras"
+      value="6"
+      class="move-options-ce__radio" />
+      <label for="tijeras" class="move-options-ce__label">
+          <img
+            src=${tijerasImageURL}
+            alt=""
+            class="move-options-ce__image" />
       </label>
     </div>
       `;

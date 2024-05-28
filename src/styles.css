@@ -26,10 +26,11 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  overflow: hidden;
 }
 
 .title-container {
-  margin: 115px auto 55px auto;
+  margin: 85px auto 55px auto;
   width: 305px;
 }
 
@@ -57,7 +58,7 @@
 }
 
 .instructions-container {
-  margin: 115px auto 25px auto;
+  margin: 85px auto 25px auto;
   width: 305px;
 }
 
@@ -82,7 +83,7 @@ button-ce {
 }
 
 .images-container {
-  margin: 55px auto 20px auto;
+  margin: auto auto 20px auto;
   display: flex;
 }
 
@@ -117,8 +118,16 @@ move-options-ce {
 
 .background-element {
   min-width: 375px;
+  width: 100%;
   height: 100vh;
-  background: url(/src/images/fondo.svg);
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-image: url(/src/images/fondo.svg);
+  z-index: -1;
 }
 
 .result-container {
@@ -129,12 +138,16 @@ move-options-ce {
   justify-content: space-between;
 }
 
-.victory {
-  background: rgba(136, 137, 73, 0.8);
+.win-background {
+  background: rgba(136, 137, 73, 0.6);
 }
 
-.defeat {
-  background: rgb(137, 73, 73, 0.8);
+.lose-background {
+  background: rgb(137, 73, 73, 0.6);
+}
+
+.draw-background {
+  background: rgba(225, 215, 106, 0.6);
 }
 
 result-star-ce {

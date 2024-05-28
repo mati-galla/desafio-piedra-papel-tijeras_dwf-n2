@@ -16,14 +16,26 @@ export function initResultStar() {
         "/src/images/red-star.svg",
         import.meta.url
       );
+      const yellowStarImageURL = new URL(
+        "/src/images/yellow-star.svg",
+        import.meta.url
+      );
 
       this.shadow.innerHTML = `
       <div class="result-star-ce__container">
       <img
         src=${greenStarImageURL}
-        class="result-star-ce__image"
+        class="result-star-ce__image win-star"
         width="255px" />
-      <p class="result-star-ce__text">Ganaste</p>
+      <img
+        src=${redStarImageURL}
+        class="result-star-ce__image lose-star"
+        width="255px" />
+      <img
+        src=${yellowStarImageURL}
+        class="result-star-ce__image draw-star"
+        width="255px" />
+      <p class="result-star-ce__text"></p>
     </div>
       `;
 
@@ -44,6 +56,10 @@ export function initResultStar() {
       .result-star-ce__image {
         z-index: 0;
         position: absolute;
+      }
+
+      .win-star, .draw-star,.lose-star {
+        display: none;
       }
       
       .result-star-ce__text {
