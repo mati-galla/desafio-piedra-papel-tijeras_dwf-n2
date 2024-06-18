@@ -11,5 +11,6 @@ import { initCounter } from "./components/counter";
   initCounter();
 
   const body = document.querySelector("body");
+  if (location.pathname == "/") location.pathname = "/inicio";
   initRouter(body);
 })();

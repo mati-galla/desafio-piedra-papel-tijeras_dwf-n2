@@ -1,4 +1,4 @@
-import { state } from "src/state";
+import { state } from "../../../src/state";
 
 export function initResultado(body: HTMLBodyElement, params) {
   function showResult(result, resultado) {

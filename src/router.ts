@@ -6,6 +6,10 @@ const routes = [
     path: /\/inicio/,
     component: initInicio,
   },
+  // {
+  //   path: /\//,
+  //   component: initInicio,
+  // },
   {
     path: /\/resultado/,
     component: initResultado,

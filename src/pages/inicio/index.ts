@@ -1,4 +1,4 @@
-import { state } from "src/state";
+import { state } from "../../../src/state";
 
 export function initInicio(body: HTMLBodyElement, params) {
   const scissorsImageURL = new URL("/src/images/scissors.svg", import.meta.url);
