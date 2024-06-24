@@ -82,8 +82,12 @@ export function initInicio(body: HTMLBodyElement, params) {
       }
 
       mainContainer.innerHTML = `
-      <img src=${pcMoveURL} class='pc-move-img'height='300px'width='200px'/>
+      <div class="move-container">
+      <img src=${pcMoveURL} class='pc-move-img'height='300px'/>
+      </div>
+      <div class="move-container">
       <img src=${userMoveURL} class='user-move-img'height='300px'/>
+      </div>
       `;
     }
 

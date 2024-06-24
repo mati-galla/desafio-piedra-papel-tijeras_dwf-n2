@@ -112,6 +112,11 @@ move-options-ce {
   margin-bottom: -40px;
 }
 
+.move-container {
+  display: flex;
+  justify-content: center;
+}
+
 .pc-move-img {
   rotate: 180deg;
 }
